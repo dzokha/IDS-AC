@@ -3,7 +3,7 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
 # Dataset
 
   <p align="center">
-  <img src="AdaptiveCyber/app/static/images/dataset.png"  alt="Dataset" width="20%"/>
+  <img src="AdaptiveCyber/app/static/images/dataset.png"  alt="Dataset" width="50%"/>
   Figure 2. Online network monitoring interface with IDS-AC
   </p>
   
