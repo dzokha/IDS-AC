@@ -7,8 +7,8 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
   | Sample | 78,564 | 12,346 | 107,086 | 990 |
   | Percent |39,48% | 6,20% | 53,82%| 0,50% |
 
-  <p align="center" width="50%">
-  <img src="AdaptiveCyber/app/static/images/dataset.png"  alt="Dataset" width="50%"/>
+  <p align="center">
+  <img src="AdaptiveCyber/app/static/images/dataset.png"  alt="Dataset" width="60%"/>
   Figure 2. Online network monitoring interface with IDS-AC
   </p>
   
