@@ -7,17 +7,24 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
   source venv/bin/activate
 ```
 ## Clone the repository and install the require packages
-
+```
   git clone https://github.com/dzokha/ids-ac.git
   cd ids-ac
   cd AdaptiveCyber
-. Install the packages
+```
+## Install the packages
+```
   pip3 install -r requirements.txt
-. Create table for Database
+```
+## Create table for Database
+```
   flask db init
   flask db migrate
   flask db upgrade
-. Run ids-ac
+```
+## Run ids-ac
+```
   ./start.sh
+```
 # Visit homepage
   http://localhost:8181/
