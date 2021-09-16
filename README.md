@@ -25,7 +25,7 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
 # Experimental Results
 
   <p align="center">
-  <img src="AdaptiveCyber/app/static/images/result.png"  alt="Dataset" width="100%"/>
+  <img src="AdaptiveCyber/app/static/images/result.jpg"  alt="Dataset" width="100%"/>
   Figure 3. ACC and AUC results for the 2-class and 4-class classification problem
   </p>
   
