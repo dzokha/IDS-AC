@@ -19,7 +19,7 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
 
   <p align="center">
   <img src="AdaptiveCyber/app/static/images/lda.png"  alt="Dataset" width="100%"/>
-  Figure 2. we use the LDA algorithm to represent the collected data on the 2D graph
+  Figure 2. Represent the collected data on the 2D graph
   </p>
   
 # Experimental Results
