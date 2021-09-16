@@ -29,6 +29,6 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
 # Visit Homepage
   http://localhost:8181/
 <p align="center">
-<img src="AdaptiveCyber/app/static/images/monitoring.png"  alt="Homepage" width="100%"/>
+<img src="AdaptiveCyber/app/static/images/monitoring.png"  alt="Homepage" width="100%" style="border:5px solid black">/>
 Figure 2. Online network monitoring interface with IDS-AC
 </p>
