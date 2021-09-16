@@ -3,6 +3,7 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
 # Dataset
 
 | Name | Normal | Low | Medium | High|
+|------|--------|-----|--------|-----|
 | HNET20 | 78,564 | 12,346 | 107,086 | 990 |
 
   <p align="center">
