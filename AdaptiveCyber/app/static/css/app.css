@@ -1,0 +1,106 @@
+:root{
+--forest_green: #00a323;
+--lime_green: #46b22d;
+--gray: #778268;
+--white: #ffffff;
+--xam:#e5e3e3;
+--black:#000000;
+--white-smore:#f0f0f0;
+}
+
+.tf-header{
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.tf-header a{
+	text-decoration: none;
+	color: var(--black);
+}
+.tf-content{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.tf-content-title{
+	text-align: left;
+}
+.tf-content h2{
+	color: var(--forest_green);
+}
+.tf-footer{
+	text-align: center;
+}
+.tf-home{
+	text-align: center;
+}
+
+.tf-home a{
+	text-decoration: none;
+}
+.tf-home-cate{
+	background-color: var(--xam);
+	height: 350px;
+	width: 350px;
+	line-height: 350px;
+	border-radius: 50%;
+	font-size: 2em;
+
+}
+.box-table{
+	border: 1px solid var(--xam);
+	padding: 20px 20px 20px 20px;
+	margin: 20px 20px 20px 20px;
+
+}
+.extraction-form{
+	text-align: left;
+}
+
+/*begin treeview*/
+.treeview {
+	border-right: 2pt solid var(--xam);
+}
+.treeview ul, #mytreeview {
+  list-style-type: none;
+}
+
+#mytreeview {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);  
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+/*end treeview*/
+
+@media (max-width:768px) {
+    .treeview {
+		border-right: none;
+	}
+}
