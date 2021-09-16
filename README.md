@@ -52,7 +52,7 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
   flask db migrate
   flask db upgrade
 ```
-- Run ids-ac
+- Run IDS-AC
 ```
   ./start.sh
 ```
