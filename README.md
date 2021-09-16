@@ -9,7 +9,8 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
 
   <p align="left">
   <img src="AdaptiveCyber/app/static/images/dataset.png"  alt="Dataset" width="40%"/>
-  Figure 1. Percentage Distribution of HN
+  
+  Figure 1. Percentage Distribution of HNNET20
   </p>
   
 # Installation
