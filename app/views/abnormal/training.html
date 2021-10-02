@@ -1,0 +1,117 @@
+{% extends "layout/admin.html" %}
+<!-- content -->
+{% block content %} <!-- content -->
+
+
+<h2>Training with Gradient Boosting for classification</h2>
+
+
+
+<!-- <div class="box-table"> -->
+  <form action="{{url_for('deepmg.execute-training')}}" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Select the file CSV</label>
+      <input class="form-control" type="file" id="multicsv_path" name="multicsv_path[]" multiple="">
+    </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Number of tree (int, default=1000) </label>
+      <input class="form-control" type="text" id="n_estimators" name="n_estimators">
+    </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">The maximum depth of the tree (int, default=3) </label>
+      <input class="form-control" type="text" id="max_depth" name="max_depth">
+    </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Learning rate shrinks the contribution of each tree (float,[0,1], default=0.1) </label>
+      <input class="form-control" type="text" id="learning_rate" name="learning_rate">
+    </div>
+<!--     <div class="mb-3">
+      <label for="formFile" class="form-label">The minimum number of samples required to split an internal node (int or float, default=2)</label>
+      <input class="form-control" type="text" id="min_samples_split" name="min_samples_split">
+    </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Controls the random seed given to each Tree estimator at each boosting iteration (int, RandomState instance or None, default=None)</label>
+      <input class="form-control" type="text" id="random_state" name="random_state">
+    </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">The number of features to consider when looking for the best split: ({‘auto’, ‘sqrt’, ‘log2’}, default=-1)</label>
+      <input class="form-control" type="text" id="max_features" name="max_features">
+    </div> -->
+    <div class="mb-3">
+      <button class="btn btn-secondary" type="submit" id="execute-button" >Execute</button>
+    </div>
+  </form>
+<!-- </div> box tables -->
+
+
+
+
+<div class="row">
+  <div class="box-table">
+    <div class="table-responsive">
+      <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Weight</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for file in list_weight %}    
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{file}}</td>
+              </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Weight</th>
+        </tr>
+      </tfoot>
+      </table>  
+    </div>  <!-- table-responsive -->
+  </div>  <!-- box tables -->
+</div>
+
+
+
+<script type="text/javascript">
+  function executeAction() {
+      // get module to execute
+
+      var form_data = new FormData($('#upload-file')[0]);
+      // print(form_data);
+      // var alert_path = $('#alert-file').val();
+      // var type_exe = '';
+
+      // if ($('#rd-run').is(':checked')) {
+      //   type_exe  += 'run';
+      // } else if ($('#rd-stop').is(':checked')) {
+      //   type_exe  += 'stop';
+      // } 
+
+      // send command via API
+      // console.log("Execute run");
+
+      alert("begin");
+      $.ajax({
+        url: "{{ url_for('alert.execute') }}", 
+        type: "POST",
+        data: form_data,
+        // data: {alert_path: alert_path, type_exe: type_exe}, 
+        // ajaxI: i,
+        success: function(response) {
+          // end spinner
+          // i = this.ajaxI;
+          alert(response);
+        }
+      });
+
+    }
+
+</script>
+
+<!-- //////////////////////////////// -->
+{% endblock %}

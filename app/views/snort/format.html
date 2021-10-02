@@ -1,0 +1,51 @@
+{% extends "layout/admin.html" %}
+<!-- content -->
+{% block content %} <!-- content -->
+
+<h2>Format feature for training</h2>
+
+
+<!-- <div class="box-table"> -->
+  <form action="{{url_for('snort.format')}}" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Select CSV format files</label>
+      <input class="form-control" type="file" id="multicsv_path" name="multicsv_path[]" multiple="">
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-secondary" type="submit" id="execute-button" >Execute</button>
+    </div>
+  </form>
+<!-- </div> box tables -->
+
+
+<div class="row">
+  <div class="box-table">
+    <div class="table-responsive">
+      <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">File name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for file in list_csv %}    
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{file}}</td>
+              </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">File name</th>
+        </tr>
+      </tfoot>
+      </table>  
+    </div>  <!-- table-responsive -->
+  </div>  <!-- box tables -->
+</div>
+
+<!-- //////////////////////////////// -->
+{% endblock %}

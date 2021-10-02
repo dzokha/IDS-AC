@@ -1,0 +1,102 @@
+{% extends "layout/admin.html" %}
+<!-- content -->
+{% block content %} <!-- content -->
+
+
+<h2>Alert to Database</h2>
+
+
+
+<!-- <div class="box-table"> -->
+  <form action="{{url_for('alert.execute')}}" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Select the file alert</label>
+      <input class="form-control" type="file" id="path" name="path[]" multiple="">
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-secondary" type="submit" id="execute-button" >Execute</button>
+    </div>
+  </form>
+<!-- </div> box tables -->
+
+
+
+<div class="row">
+  <div class="box-table">
+    <div class="table-responsive">
+      <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Classtype</th>
+          <th scope="col">Msg</th>
+          <th scope="col">Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in alert %}    
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <!-- <td>{{row['meta_data']}}</td> -->
+              </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Classtype</th>
+          <th scope="col">Msg</th>
+          <th scope="col">Number</th>
+        </tr>
+      </tfoot>
+      </table>  
+    </div>  <!-- table-responsive -->
+  </div>  <!-- box tables -->
+</div>
+
+
+
+<script type="text/javascript">
+  function executeAction() {
+      // get module to execute
+
+      var form_data = new FormData($('#upload-file')[0]);
+      // print(form_data);
+      // var alert_path = $('#alert-file').val();
+      // var type_exe = '';
+
+      // if ($('#rd-run').is(':checked')) {
+      //   type_exe  += 'run';
+      // } else if ($('#rd-stop').is(':checked')) {
+      //   type_exe  += 'stop';
+      // } 
+
+      // send command via API
+      // console.log("Execute run");
+
+      alert("begin");
+      $.ajax({
+        url: "{{ url_for('alert.execute') }}", 
+        type: "POST",
+        data: form_data,
+        // data: {alert_path: alert_path, type_exe: type_exe}, 
+        // ajaxI: i,
+        success: function(response) {
+          // end spinner
+          // i = this.ajaxI;
+          alert(response);
+        }
+      });
+
+    }
+
+</script>
+
+<!-- //////////////////////////////// -->
+{% endblock %}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Build Your Own Botnet"/>
+  <link rel="shortcut icon" href="/static/image/TR.png" type="image/png"/>
+  {% if title %}
+    <title>{{ title }}</title>
+  {% else %}
+    <title>Adaptive Cybersecurity</title>
+    <!-- <title>Tcpfeature</title> -->
+  {% endif %}
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/tcpfeature.css">
+  <!-- Datatables -->
+  <link rel="stylesheet" href="/static/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="/static/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/jquery-jvectormap-2.0.5.css" type="text/css" media="screen"/>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <script src="/static/js/jquery.js"></script>
+  <script src="/static/js/jquery-ui.js"></script>
+</head>
+<body class="background-body-user">
+
+<div class="container">
+  <!-- header -->
+  <div class="tf-header">
+    <h1><a href="{{url_for('home.index')}}">Adaptive Cybersecurity</a></h1>
+  </div>
+  <hr/>
+  
+
+  <div>   <!-- messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        {% if category == 'success' or category == 'warning' %}
+        <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+
+ </div><!-- /messages -->
+
+  <!-- Content -->
+  <div class="tf-content">
+    <div class="row">
+      <div class="col-lg-3 col-md-4">
+        <div class="treeview">
+          <h2>Menu</h2>
+          <ul id="mytreeview">
+            <li><span class="caret">Snort alert </span>
+              <ul class="nested">
+                <li><a href="{{url_for('alert.index')}}">Import alert to Database</a></li>
+                <li><a href="{{url_for('alert.report')}}">Report info alert</a></li>
+              </ul>
+            </li>
+            <li><span class="caret">Feature extraction</span>
+              <ul class="nested">
+                <li><a href="{{url_for('snort.index')}}">Tcpdump to 29 feature</a></li>
+                <li><a href="{{url_for('snort.featurefortraining')}}">Format feature for training</a></li>
+              </ul>
+            </li>
+            <li><span class="caret">Network monitoring</span>
+              <ul class="nested">
+                <li><a href="{{url_for('abnormal.training')}}">Training</a></li>
+                <li><a href="{{url_for('abnormal.testing')}}">Testing</a></li>
+                <li><a href="{{url_for('abnormal.monitoring')}}">Monitoring</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-8">
+            {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <!-- footer -->
+  <div class="tf-footer">
+    Kết quả đề tài: Nghiên cứu xây dựng hệ thống HoneyWall phục vụ công tác bảo vệ website các đơn vị hành chính, sự nghiệp trên địa bàn thành phố Cần Thơ
+  </div>
+  
+</div>
+
+  <script src="{{ url_for('static', filename='js/jquery.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/jquery-ui.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+   <!-- DataTables -->
+  <script src="{{ url_for('static', filename='js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/dataTables.bootstrap.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/jquery-jvectormap-2.0.5.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/jquery-jvectormap-world-mill.js')}}"></script>
+
+
+  
+  <!-- <script src="{{ url_for('static', filename='js/jquery.js')}}"></script> -->
+<!--   <script src="/static/js/jquery-ui.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script> -->
+   <!-- DataTables -->
+<!--   <script src="/static/js/jquery.dataTables.min.js"></script>
+  <script src="/static/js/dataTables.bootstrap.min.js"></script>
+  <script src="/static/js/jquery-jvectormap-2.0.5.min.js"></script>
+  <script src="/static/js/jquery-jvectormap-world-mill-en.js"></script> -->
+  
+  <script>
+    $(function () {
+      $('#example1').DataTable()
+      $('#example2').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+  </script>
+  <script>
+    var toggler = document.getElementsByClassName("caret");
+    var i;
+
+    for (i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function() {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("caret-down");
+      });
+    }
+  </script>
+
+<!--   <script>
+    window.setTimeout(function () {
+      window.location.reload();
+    }, 30000);
+
+    $(function() {
+
+      //This setTimeout function execute or call automatically when 5 second completed.
+      setTimeout(function() {
+        $("#messages").fadeOut(1500);
+      }, 5000);
+
+      $('#btnShow').click(function() {
+        //This is used for show the div.
+        $('#messages').show();
+
+        //This setTimeout function execute when click on show div buton and hide automatically.
+        setTimeout(function() {
+          $("#messages").fadeIn(1500);
+        }, 5000);
+
+      });
+    });
+  </script> -->
+
+</body>
+</html>

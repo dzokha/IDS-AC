@@ -1,0 +1,149 @@
+{% extends "layout/admin.html" %}
+<!-- content -->
+{% block content %} <!-- content -->
+
+<div id="messages" name="messages" onclick="executeAction()"> <!-- messages -->
+</div><!-- /messages -->
+
+
+<h2>Predict form file tcpdump</h2>
+
+
+
+<!-- <div class="box-table"> -->
+	<form action="{{url_for('deepmg.execute-testing')}}" method="post" enctype="multipart/form-data">
+		<div class="mb-3">
+			<label for="formFile" class="form-label">Load the model from disk (.sav)</label>
+			<input class="form-control" type="file" id="alert_path" name="alert_path">
+		</div>
+		<div class="mb-3">
+			<label for="formFile" class="form-label">Load file tcpdump</label>
+			<input class="form-control" type="file" id="file_tcpdump" name="file_tcpdump">
+		</div>
+		<div class="mb-3">
+			<button class="btn btn-secondary" type="submit" id="execute-button" >Execute</button>
+		</div>
+	</form>
+<!-- </div> box tables -->
+
+
+
+
+<div class="row">
+	<div class="box-table">
+		<div class="table-responsive">
+			<table id="example1" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Priority</th>
+					<th scope="col">Src_ip</th>
+					<th scope="col">Src_port</th>
+					<th scope="col">Dst_ip</th>
+					<th scope="col">Dst_port</th>
+					<th scope="col">Datetime</th>
+					<th scope="col">Country</th>
+					<th scope="col">Protocol</th>
+					<th scope="col">Service</th>
+					<th scope="col">Flag</th>
+					<!-- <th scope="col">Metadata</th> -->
+				</tr>
+			</thead>
+			<tbody>
+				{% for row in alert %}    
+						<tr>
+								<td>{{row[0]}}</td>
+								<td>{{row['priority']}}</td>
+								<td>{{row['src_ip']}}</td>
+								<td>{{row['src_port']}}</td>
+								<td>{{row['dst_ip']}}</td>
+								<td>{{row['dst_port']}}</td>
+								<td>{{row['date_time']}}</td>
+								<td>{{row['country']}}</td>
+								<td>{{row['protocol']}}</td>
+								<td>{{row['service']}}</td>
+								<td>{{row['flag']}}</td>
+							</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Priority</th>
+					<th scope="col">Src_ip</th>
+					<th scope="col">Src_port</th>
+					<th scope="col">Dst_ip</th>
+					<th scope="col">Dst_port</th>
+					<th scope="col">Datetime</th>
+					<th scope="col">Country</th>
+					<th scope="col">Protocol</th>
+					<th scope="col">Service</th>
+					<th scope="col">Flag</th>
+					<!-- <th scope="col">Metadata</th> -->
+				</tr>
+			</tfoot>
+			</table>  
+		</div>  <!-- table-responsive -->
+	</div>  <!-- box tables -->
+</div>
+
+
+	<script>
+		// window.setTimeout(function () {
+			// window.location.reload();
+		// }, 30000);
+
+		// $(function() {
+			//This setTimeout function execute or call automatically when 5 second completed.
+			window.setTimeout(function() {
+				$.ajax({
+					url: "{{url_for('deepmg.info-alert')}}", 
+					type: "GET",
+					success: function(response) {
+						document.getElementById("messages").innerHTML = "<div class='alert alert-info alert-dismissible fade show' role='alert'>" + response + "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+					},
+					error: function(error){
+						alert(error);
+					}
+				});
+			}, 5000);
+		// });
+	</script>
+
+
+<script type="text/javascript">
+	function executeAction() {
+			// get module to execute
+
+			// var form_data = new FormData($('#upload-file')[0]);
+			// form_data = "hello";
+			// print(form_data);
+			// var alert_path = $('#alert-file').val();
+			// var type_exe = '';
+
+			// if ($('#rd-run').is(':checked')) {
+			//   type_exe  += 'run';
+			// } else if ($('#rd-stop').is(':checked')) {
+			//   type_exe  += 'stop';
+			// } 
+
+			// send command via API
+			// console.log("Execute run");
+
+			alert("begin");
+			$.ajax({
+				url: "{{url_for('deepmg.info-alert')}}", 
+				type: "GET",
+				success: function(response) {
+					alert(response);
+				},
+				error: function(error){
+					alert(error);
+				}
+			});
+		}
+
+</script>
+
+<!-- //////////////////////////////// -->
+{% endblock %}

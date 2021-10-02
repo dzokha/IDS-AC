@@ -1,0 +1,125 @@
+{% extends "layout/admin.html" %}
+<!-- content -->
+{% block content %} <!-- content -->
+
+
+<h2>Report</h2>
+
+
+
+<!-- <div class="box-table"> -->
+<!--   <form action="{{url_for('alert.execute')}}" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Select the file alert</label>
+      <input class="form-control" type="file" id="alert_path" name="alert_path">
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-secondary" type="submit" id="execute-button" >Execute</button>
+    </div>
+  </form> -->
+<!-- </div> box tables -->
+
+<!-- <canvas id="demo-canvas"></canvas> -->
+
+<div id="map-2" class="map" style="height: 452px"></div>
+
+<div class="row">
+  <div class="box-table">
+    <div class="table-responsive">
+      <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">loc</th>
+          <th scope="col">Country</th>
+          <!-- <th scope="col">Metadata</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in alert %}    
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <!-- <td>{{row['meta_data']}}</td> -->
+              </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">loc</th>
+          <th scope="col">Country</th>
+          <!-- <th scope="col">Metadata</th> -->
+        </tr>
+      </tfoot>
+      </table>  
+    </div>  <!-- table-responsive -->
+  </div>  <!-- box tables -->
+</div>
+
+<!-- 383f47 den 177FF7 xanh ; #F83B63 do; 383f47 den; F8E23B vang; Xanh dam   -->
+
+<script type="text/javascript">
+
+  $(function(){
+  $('#map-2').vectorMap({
+    map: 'world_mill',
+    scaleColors: ['#C8EEFF', '#0071A4'],
+    normalizeFunction: 'polynomial',
+    hoverOpacity: 0.2,
+    hoverColor: false,
+    markerStyle: {
+      initial: {
+        fill: '#F83B63',
+        stroke: '#383f47'
+      }
+    },
+    backgroundColor: '#383f47',
+    markers: [
+      {% for addr in alert %}
+        {% set res = addr[0].split(",") %}
+        {latLng: ["{{ res[0] }}", "{{ res[1]}}"], name: "{{ addr[1]}}"},
+      {% endfor %}
+    ]
+  });
+});
+
+
+  function executeAction() {
+      // get module to execute
+
+      var form_data = new FormData($('#upload-file')[0]);
+      // print(form_data);
+      // var alert_path = $('#alert-file').val();
+      // var type_exe = '';
+
+      // if ($('#rd-run').is(':checked')) {
+      //   type_exe  += 'run';
+      // } else if ($('#rd-stop').is(':checked')) {
+      //   type_exe  += 'stop';
+      // } 
+
+      // send command via API
+      // console.log("Execute run");
+
+      alert("begin");
+      $.ajax({
+        url: "{{ url_for('alert.execute') }}", 
+        type: "POST",
+        data: form_data,
+        // data: {alert_path: alert_path, type_exe: type_exe}, 
+        // ajaxI: i,
+        success: function(response) {
+          // end spinner
+          // i = this.ajaxI;
+          alert(response);
+        }
+      });
+
+    }
+
+</script>
+
+<!-- //////////////////////////////// -->
+{% endblock %}

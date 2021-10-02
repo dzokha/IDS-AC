@@ -1,0 +1,66 @@
+{% extends "layout/admin.html" %}
+{% block content %}
+<!-- /////////////////////////////////// -->
+
+<div class="tf-content-title">
+<h2>Extraction tcpfeature</h2>
+<p>Chọn tập tin có định dạng tcpdump để trích đặt trưng phục vụ mô hình cảnh báo tấn công mạng </p>
+</div>
+<div class="row">
+	<div class="col-sm-4">
+		<img src="/static/image/29feature.png" class="img-thumbnail" alt="29 feature">
+	</div>
+	<div class="col-sm-8">
+		<div class="extraction-form">
+			<div class="mb-3">
+			  <label for="formText" class="form-label">Chọn nhãn cho dữ liệu trích xuất</label>
+			  <select class="form-select" aria-label="Default select example">
+				  <option value="1">Dữ liệu truy cập bình thường</option>
+				  <option value="2">Dữ liệu tấn công mạng</option>
+				</select>
+			</div>
+			<div class="mb-3">
+			  <label for="formFile" class="form-label">Đường dẫn đến tập tin tcpdump (.pcap)</label>
+			  <input class="form-control" type="file" id="formFile">
+			</div>
+			<div class="mb-3">
+				<button type="button" class="btn btn-secondary">Extraction</button>
+			</div>
+		</div>
+		<div>
+			<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+		</div>
+	</div>
+</div>
+
+
+<!-- //////////////////////////////// -->
+{% endblock %}

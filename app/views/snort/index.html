@@ -1,0 +1,60 @@
+{% extends "layout/admin.html" %}
+{% block content %}
+<!-- /////////////////////////////////// -->
+
+
+<h2>Tcpfeature extraction </h2>
+
+
+
+<form action="{{url_for('snort.execute')}}" method="post" enctype="multipart/form-data">
+<div class="mb-3">
+   <label for="formText" class="form-label">Select a label for the extracted data</label>
+   <select class="form-select" aria-label="Default select example" id="tcpdump_attack" name="tcpdump_attack">
+    <option value="0">Normal access data</option>
+    <option value="1">Data attack network</option>
+  </select>
+</div>
+<div class="mb-3">
+  <label for="formFile" class="form-label">Select the tcpdump file (.pcap)</label>
+  <input class="form-control" type="file" id="path" name="path[]" multiple="">
+</div>
+<div class="mb-3">
+  <button type="submit" class="btn btn-secondary" id="execute-button">Extraction</button> 
+</div>
+</form>
+
+
+
+	<div class="row">
+  <div class="box-table">
+    <div class="table-responsive">
+      <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">File name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for file in list_csv %}    
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{file}}</td>
+              </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">File name</th>
+        </tr>
+      </tfoot>
+      </table>  
+    </div>  <!-- table-responsive -->
+  </div>  <!-- box tables -->
+</div>
+
+
+<!-- //////////////////////////////// -->
+{% endblock %}
