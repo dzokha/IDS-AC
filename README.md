@@ -40,7 +40,6 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
 ```
   git clone https://github.com/dzokha/ids-ac.git
   cd ids-ac
-  cd AdaptiveCyber
 ```
 - Install the packages
 ```
