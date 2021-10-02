@@ -10,7 +10,7 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
   | Percent |39,48% | 6,20% | 53,82%| 0,50% |
 
   <p align="left">
-  <img src="AdaptiveCyber/app/static/images/dataset.png"  alt="Dataset" width="40%"/>
+  <img src="app/static/images/dataset.png"  alt="Dataset" width="40%"/>
   
   Figure 1. Percentage Distribution of HNNET20
   </p>
@@ -18,14 +18,14 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
 # Data visualization with LDA
 
   <p align="center">
-  <img src="AdaptiveCyber/app/static/images/lda.png"  alt="Dataset" width="100%"/>
+  <img src="app/static/images/lda.png"  alt="Dataset" width="100%"/>
   Figure 2. Represent the collected data on the 2D graph
   </p>
   
 # Experimental Results
 
   <p align="center">
-  <img src="AdaptiveCyber/app/static/images/result.jpg"  alt="Dataset" width="100%"/>
+  <img src="app/static/images/result.jpg"  alt="Dataset" width="100%"/>
   Figure 3. ACC and AUC results for the 2-class and 4-class classification problem
   </p>
   
@@ -40,7 +40,6 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
 ```
   git clone https://github.com/dzokha/ids-ac.git
   cd ids-ac
-  cd AdaptiveCyber
 ```
 - Install the packages
 ```
@@ -61,7 +60,7 @@ The Fourth Industrial Revolution is focusing on Artificial Intelligence technolo
   http://localhost:8181/
 
   <p align="center">
-  <img src="AdaptiveCyber/app/static/images/monitoring.png"  alt="Homepage" width="100%"/>
+  <img src="app/static/images/monitoring.png"  alt="Homepage" width="100%"/>
   Figure 4. Online network monitoring interface with IDS-AC
   </p>
 
