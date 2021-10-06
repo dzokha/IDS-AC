@@ -5,23 +5,11 @@
 
 <h2>Report</h2>
 
-
-
-<!-- <div class="box-table"> -->
-<!--   <form action="{{url_for('alert.execute')}}" method="post" enctype="multipart/form-data">
-    <div class="mb-3">
-      <label for="formFile" class="form-label">Select the file alert</label>
-      <input class="form-control" type="file" id="alert_path" name="alert_path">
-    </div>
-    <div class="mb-3">
-      <button class="btn btn-secondary" type="submit" id="execute-button" >Execute</button>
-    </div>
-  </form> -->
-<!-- </div> box tables -->
-
-<!-- <canvas id="demo-canvas"></canvas> -->
-
 <div id="map-2" class="map" style="height: 452px"></div>
+
+<p>Geolocation of IPs ({{country}} IP have country is NULL)</p>
+
+<a class="btn btn-secondary" href="{{url_for('alert.fix-country')}}">Fix country</a>
 
 <div class="row">
   <div class="box-table">
@@ -85,41 +73,6 @@
   });
 });
 
-
-  function executeAction() {
-      // get module to execute
-
-      var form_data = new FormData($('#upload-file')[0]);
-      // print(form_data);
-      // var alert_path = $('#alert-file').val();
-      // var type_exe = '';
-
-      // if ($('#rd-run').is(':checked')) {
-      //   type_exe  += 'run';
-      // } else if ($('#rd-stop').is(':checked')) {
-      //   type_exe  += 'stop';
-      // } 
-
-      // send command via API
-      // console.log("Execute run");
-
-      alert("begin");
-      $.ajax({
-        url: "{{ url_for('alert.execute') }}", 
-        type: "POST",
-        data: form_data,
-        // data: {alert_path: alert_path, type_exe: type_exe}, 
-        // ajaxI: i,
-        success: function(response) {
-          // end spinner
-          // i = this.ajaxI;
-          alert(response);
-        }
-      });
-
-    }
-
-</script>
 
 <!-- //////////////////////////////// -->
 {% endblock %}
